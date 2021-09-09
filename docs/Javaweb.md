@@ -105,6 +105,7 @@ html内的注释为 <!-- -->（jsp的注释为<%-- --%>）
 
    textarea表示多行文本输入框（起始标签和结束标签中的内容为默认值），rows属性设置可以显示几行的高度，cols属性设置每行可以显示几个字符宽度。
 
+   ```html
    <form>
        用户名称：<input type="text" value="默认值"/><br>
        用户密码：<input type="password" vlaue="abc"/><br>
@@ -122,8 +123,8 @@ html内的注释为 <!-- -->（jsp的注释为<%-- --%>）
             </select><br>
        自我评价：<textarea rows="10" cols="20">我才是默认值</textarea>
        <input type="reset" />
-       <input type="submit"/>
    </form>
+   ```
 
 7. 其他标签：div，span，p，font
 
