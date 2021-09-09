@@ -3,4 +3,4 @@
 </p>
 <h1 align="center">小胡java学习笔记</h1>
 
-[GitHub主页](https://github.com/ScripturesHu)    [Gitee主页](https://gitee.com/kiki98)   [进入仓库](#kiki) 
+[GitHub主页](https://github.com/ScripturesHu)    [Gitee主页](https://gitee.com/ScripturesHu)   [进入仓库](#kiki) 
