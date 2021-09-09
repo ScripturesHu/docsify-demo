@@ -1,15 +1,6 @@
-# docsify-demo
+<p align="center">
+<img src="README.assets/20210908225820.jpg" width="200" height="200"/>
+</p>
+<h1 align="center">小胡java学习笔记</h1>
 
-[如何使用docsify搭建文档类型的网站](./docs/how-to-use-docsify.md)
-
-### 安利一个在线学习Java的文档
-
-- 在线阅读地址：https://snailclimb.gitee.io/javaguide-interview/#/
-- Github：https://github.com/Snailclimb/JavaGuide-Interview
-- 码云：https://gitee.com/SnailClimb/JavaGuide-Interview
-
-### 作者介绍
-
-**作者介绍:**  Github 74k Star 项目  **[JavaGuide](https://github.com/Snailclimb/JavaGuide)**（公众号同名） 作者。每周都会在公众号更新一些自己原创干货。公众号后台回复“1”领取Java工程师必备学习资料+面试突击pdf。
-
-![](https://imgkr.cn-bj.ufileos.com/66f3a716-b3cc-469b-9b61-8be00244305c.png)
+[GitHub主页](https://github.com/ScripturesHu)    [Gitee主页](https://gitee.com/kiki98)   [进入仓库](#kiki) 
