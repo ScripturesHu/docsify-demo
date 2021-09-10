@@ -1,6 +1,6 @@
 # SSM
 
-## 一、Spring
+# 一、Spring
 
 **Spring介绍：**
 
@@ -23,7 +23,7 @@ spring体系结构：
 
 ![](SSM.assets/image-20210811150443717.png)
 
-### 1.1.Spring快速入门
+## 1.1.Spring快速入门
 
 **Spring的开发步骤**
 
@@ -94,9 +94,9 @@ spring体系结构：
    }
    ```
 
-### 1.2.Spring配置文件
+## 1.2.Spring配置文件
 
-#### 1.2.1.Bean标签介绍
+### 1.2.1.Bean标签介绍
 
 **a）Bean标签基本配置**
 
@@ -162,7 +162,7 @@ spring体系结构：
 <bean id="userDao" class="com.dao.impl.UserDaoImpl" init-method="destroy"></bean>Copy to clipboardErrorCopied
 ```
 
-#### 1.2.2.Bean实例化三种方式
+### 1.2.2.Bean实例化三种方式
 
 - 无参**构造**方法实例化
 
@@ -202,7 +202,7 @@ public class DynamicFactoryBean {
 <bean id="userDao" factory-bean="factoryBean" factory-method="createUserDao"/>Copy to clipboardErrorCopied
 ```
 
-#### 1.2.3.Bean的依赖注入
+### 1.2.3.Bean的依赖注入
 
 - 目前UserService实例和UserDao实例都存在与Spring容器中，当前的做法是在容器外部获得UserService实例和UserDao实例，然后在程序中进行结合。
 
@@ -219,7 +219,7 @@ public class DynamicFactoryBean {
   - 那这种业务层和持久层的依赖关系，在使用 Spring 之后，就让 Spring 来维护了。简单的说，就是坐等框架把持久层对象传入业务层，而不用我们自己去获取。
   - **在UserServiceImpl中添加私有属性：UserDao的实现类（引用数据类型），但并不实例化，而在applicationContext.xml中以set方法或者构造器方法把userDao这个Bean注入到userService这个Bean中，同理，在UserServiceImpl中添加私有属性普通数据类型或者集合类型，都可以同样方式进行依赖注入。**
 
-##### a）Bean的依赖注入方式
+#### a）Bean的依赖注入方式
 
 - set方法注入：
 
@@ -294,7 +294,7 @@ public class DynamicFactoryBean {
   </bean>Copy to clipboardErrorCopied
   ```
 
-##### b）Bean的依赖注入的数据类型
+#### b）Bean的依赖注入的数据类型
 
 - **普通数据类型**(set方法注入为例)
 
@@ -447,7 +447,7 @@ public class DynamicFactoryBean {
   </bean>Copy to clipboardErrorCopied
   ```
 
-#### 1.2.4.引入其他配置文件(分模块开发)
+### 1.2.4.引入其他配置文件(分模块开发)
 
 可以将部分配置拆解到其他配置文件中，而在Spring主配置文件通过import标签进行加载
 
@@ -458,7 +458,7 @@ public class DynamicFactoryBean {
 <import resource="applicationContext-user.xml"></import>Copy to clipboardErrorCopied
 ```
 
-#### 1.2.5.Spring的重点配置
+### 1.2.5.Spring的重点配置
 
 ```
 <bean>标签
@@ -476,7 +476,7 @@ public class DynamicFactoryBean {
 <import>标签:导入其他的Spring的分文件
 ```
 
-### 1.3.Spring相关API(ApplicationContext接口)
+## 1.3.Spring相关API(ApplicationContext接口)
 
 **a）ApplicationContext的继承体系：**
 
@@ -532,7 +532,7 @@ UserService userService1 = (UserService) applicationContext.getBean("userService
 UserService userService2 = applicationContext.getBean(UserService.class);
 ```
 
-### 1.4.Spring配置数据源
+## 1.4.Spring配置数据源
 
 **数据源（数据库连接池）的作用**
 
@@ -542,7 +542,7 @@ UserService userService2 = applicationContext.getBean(UserService.class);
 - 使用完毕后将连接资源归还给数据源
 - 常见的数据源(连接池)：DBCP、C3P0、BoneCP、Druid等
 
-#### 1.4.1.数据源的手动创建
+### 1.4.1.数据源的手动创建
 
 1. 导入c3p0、druid和mysql数据库驱动的坐标（pom.xml）
 
@@ -598,7 +598,7 @@ UserService userService2 = applicationContext.getBean(UserService.class);
    }Copy to clipboardErrorCopied
    ```
 
-#### 1.4.2.Spring配置数据源
+### 1.4.2.Spring配置数据源
 
 配置数据源也是创建一个DataSource对象，可以将DataSource的创建权交由Spring容器去完成
 
@@ -630,7 +630,7 @@ public void test4() throws Exception {
 }
 ```
 
-#### 1.4.3.抽取Spring配置数据源的jdbc配置文件
+### 1.4.3.抽取Spring配置数据源的jdbc配置文件
 
 applicationContext.xml加载jdbc.properties配置文件获得连接信息。
 
@@ -660,9 +660,9 @@ applicationContext.xml加载jdbc.properties配置文件获得连接信息。
   </bean>Copy to clipboardErrorCopied
   ```
 
-### 1.5.Spring注解开发
+## 1.5.Spring注解开发
 
-#### 1.5.1Sring原始注解
+### 1.5.1Sring原始注解
 
 - Spring是**轻代码而重配置**的框架，配置比较繁重，影响开发效率，所以注解开发是一种趋势，**注解代替xml配置文件**可以简化配置，提高开发效率。
 
@@ -767,7 +767,7 @@ applicationContext.xml加载jdbc.properties配置文件获得连接信息。
     }
     ```
 
-#### 1.5.2.Spring新注解
+### 1.5.2.Spring新注解
 
 - 使用上面的注解还不能**全部替代xml配置文件**，还需要使用注解替代的配置如下：
 
@@ -847,9 +847,9 @@ applicationContext.xml加载jdbc.properties配置文件获得连接信息。
   }
   ```
 
-### 1.6.Spring整合Junit
+## 1.6.Spring整合Junit
 
-#### 1.6.1.原始Junit测试Spring的问题
+### 1.6.1.原始Junit测试Spring的问题
 
 在测试类中，每个测试方法都有以下两行代码，作用是获取容器，如果不写的话，直接会提示空指针异常。所以又不能轻易删掉。
 
@@ -858,7 +858,7 @@ ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 IAccountService as = ac.getBean("accountService",IAccountService.class);
 ```
 
-#### 1.6.2.Spring集成Junit步骤与代码实现
+### 1.6.2.Spring集成Junit步骤与代码实现
 
 - ①导入spring集成Junit的坐标
 
@@ -903,9 +903,9 @@ IAccountService as = ac.getBean("accountService",IAccountService.class);
   }
   ```
 
-### 1.7.Spring与Web环境集成
+## 1.7.Spring与Web环境集成
 
-#### 1.7.1.ApplicationContext应用上下文获取方式
+### 1.7.1.ApplicationContext应用上下文获取方式
 
 - 弊端：
 
@@ -915,7 +915,7 @@ IAccountService as = ac.getBean("accountService",IAccountService.class);
 
   在Web项目中，可以使用**ServletContextListener**监听Web应用的启动，在Web应用启动时，就加载Spring的配置文件，创建应用上下文对象**ApplicationContext**，在将其存储到最大的域**servletContext**域中，这样就可以在任意位置从域中获得应用上下文**ApplicationContext**对象了。
 
-#### 1.7.2.Spring提供获取应用上下文的工具
+### 1.7.2.Spring提供获取应用上下文的工具
 
 Spring提供了一个监听器**ContextLoaderListener**就是对上述功能的封装，该监听器**内部加载Spring配置文件**（需要在web.xml中配置全局初始化参数），创建应用上下文对象，并存储到**ServletContext**域中，提供了一个客户端工具类**WebApplicationContextUtils**供使用者获得应用上下文对象。
 
@@ -983,13 +983,13 @@ Spring提供了一个监听器**ContextLoaderListener**就是对上述功能的�
   }
   ```
 
-### 1.8.Spring JdbcTemplate
+## 1.8.Spring JdbcTemplate
 
 **JdbcTemplate概述：**
 
 它是spring框架中提供的一个对象，是对原始繁琐的Jdbc API对象的简单封装。spring框架为我们提供了很多的操作模板类。例如：操作关系型数据的JdbcTemplate和HibernateTemplate，操作nosql数据库的RedisTemplate，操作消息队列的JmsTemplate等等。
 
-#### 1.8.1.JdbcTemplate开发步骤
+### 1.8.1.JdbcTemplate开发步骤
 
 ①导入spring-jdbc和spring-tx坐标
 
@@ -1040,7 +1040,7 @@ public void test() throws PropertyVetoException {
 }
 ```
 
-#### 1.8.2.Spring产生JdbcTemplate对象
+### 1.8.2.Spring产生JdbcTemplate对象
 
 可以将JdbcTemplate的创建权交给Spring，将数据源DataSource的创建权也交给Spring，在Spring容器内部将数据源DataSource注入到JdbcTemplate模版对象中
 
@@ -1072,7 +1072,7 @@ public void test1() {
 }
 ```
 
-#### 1.8.3.JdbcTemplate的常用操作
+### 1.8.3.JdbcTemplate的常用操作
 
 ```java
 @RunWith(SpringJUnit4ClassRunner.class) //Spring集成Junit测试
@@ -1108,7 +1108,7 @@ public class JdbcTemplateCRUDTest {
 }
 ```
 
-#### 1.8.4.获取数据库自动生成的id
+### 1.8.4.获取数据库自动生成的id
 
 ```java
 public Long save(User user) {
@@ -1135,9 +1135,9 @@ public Long save(User user) {
 }Copy to clipboardErrorCopied
 ```
 
-### 1.9.面向切面编程AOP
+## 1.9.面向切面编程AOP
 
-#### 1.9.1.Spring 的 AOP
+### 1.9.1.Spring 的 AOP
 
 **AOP简介：**
 
@@ -1147,7 +1147,7 @@ public Long save(User user) {
 - 优势：减少重复代码，提高开发效率，并且便于维护
 - 底层实现：AOP 的底层是通过 **Spring 提供的的动态代理技术**实现的。在运行期间，Spring通过动态代理技术动态的生成代理对象，代理对象方法执行时进行增强功能的介入，在去调用目标对象的方法，从而完成功能的增强。
 
-##### a）JDK动态代理
+#### a）JDK动态代理
 
 JDK 代理 : 基于接口的动态代理技术
 
@@ -1226,7 +1226,7 @@ public class ProxyTest {
 }
 ```
 
-##### b）cglib动态代理
+#### b）cglib动态代理
 
 cglib动态代理：基于父类的动态代理技术
 
@@ -1274,7 +1274,7 @@ public class ProxyTest {
 }
 ```
 
-##### c）AOP相关概念
+#### c）AOP相关概念
 
 - Spring 的 AOP 实现底层就是对上面的动态代理的代码进行了封装，封装后我们只需要对需要关注的部分进行代码编写，并通过配置的方式完成指定目标的方法增强。**在 spring 中，框架会根据目标类是否实现了接口来决定采用哪种动态代理的方式。**
 
@@ -1296,7 +1296,7 @@ public class ProxyTest {
 
 - **Spring 框架监控切入点方法的执行。一旦监控到切入点方法被运行，使用代理机制，动态创建目标对象的代理对象，根据通知类别，在代理对象的对应位置，将通知对应的功能织入，完成完整的代码逻辑运行。**
 
-#### 1.9.2.基于 XML 的 AOP 开发
+### 1.9.2.基于 XML 的 AOP 开发
 
 ①导入 AOP 相关坐标
 
@@ -1422,7 +1422,7 @@ public class MyAspect {
   </aop:config>
   ```
 
-#### 1.9.3.基于注解的 AOP 开发
+### 1.9.3.基于注解的 AOP 开发
 
 ①创建目标接口和目标类（内部有切点）并把对象创建权交给 spring
 
@@ -1486,9 +1486,9 @@ public class MyAspect {
 | 异常抛出通知 | @AfterThrowing  | 用于配置异常抛出通知。指定增强的方法在出现异常时执行         |
 | 最终通知     | @After          | 用于配置最终通知。无论增强方式执行是否有异常都会执行         |
 
-### 1.10.声明式事务控制
+## 1.10.声明式事务控制
 
-#### 1.10.1.编程（代码）式事务控制相关对象
+### 1.10.1.编程（代码）式事务控制相关对象
 
 **a）PlatformTransactionManager：**
 
@@ -1560,7 +1560,7 @@ TransactionStatus 接口提供的是事务具体的运行状态，方法介绍�
 | boolean isNewTransaction() | 是否是新事务   |
 | boolean isRollbackOnly()   | 事务是否回滚   |
 
-#### 1.10.2.基于 XML 的声明式事务控制
+### 1.10.2.基于 XML 的声明式事务控制
 
 - Spring 的声明式事务顾名思义就是采用声明的方式来处理事务。这里所说的声明，就是指在配置文件中声明，**用在 Spring 配置文件中声明式的处理事务来代替代码式的处理事务。**
 - 事务管理不侵入开发的组件（**解耦**）。具体来说，业务逻辑对象就不会意识到正在事务管理之中，事实上也应该如此，因为事务管理是**属于系统层面的服务，而不是业务逻辑的一部分**，如果想要改变事务管理策划的话，也只需要在定义文件中重新配置即可
@@ -1634,7 +1634,7 @@ TransactionStatus 接口提供的是事务具体的运行状态，方法介绍�
 
 name：切点方法名称 isolation:事务的隔离级别 propogation：事务的传播行为 timeout：超时时间 read-only：是否只读
 
-#### 1.10.3.基于注解的声明式事务控制
+### 1.10.3.基于注解的声明式事务控制
 
 AccountServiceImpl.java：
 
@@ -1710,13 +1710,13 @@ applicationContext.xml 配置文件：
 
   Xml配置文件中要开启事务的注解驱动<tx:annotation-driven />
 
-## 二、SpringMVC
+# 二、SpringMVC
 
 **SpringMVC** 是一种基于 Java 的实现 **MVC设计模型**(**M**odel-**V**iew-**C**ontroller，即模型-视图-控制器)的请求驱动类型的轻量级 **Web** **框架**，属于**SpringFrameWork** 的后续产品，已经融合在 Spring Web Flow 中。SpringMVC 已经成为目前最主流的MVC框架之一，通过一套注解，让一个简单的 Java 类成为处理请求的控制器，而无须实现任何接口。同时它还支持 **RESTful** 编程风格的请求。
 
 在没有使用SpringMVC之前我们都是使用Servlet在做Web开发。但是使用Servlet开发在接收请求参数，数据共享，页面跳转等操作相对比较复杂。servlet是java进行web开发的标准，既然springMVC是对servlet的封装，那么很显然**SpringMVC底层就是Servlet，SpringMVC就是对Servlet进行深层次的封装。**
 
-### 2.1.SpringMVC快速入门
+## 2.1.SpringMVC快速入门
 
 客户端发起请求，服务器端接收请求，执行逻辑并进行视图跳转。
 
@@ -1817,7 +1817,7 @@ applicationContext.xml 配置文件：
 
    http://localhost:8080/spring_mvc/quick
 
-### 2.2.SpringMVC的解析
+## 2.2.SpringMVC的解析
 
 **SpringMVC的执行流程：**
 
@@ -1843,7 +1843,7 @@ applicationContext.xml 配置文件：
 
 ⑩DispatcherServlet根据View进行渲染视图（即将模型数据填充至视图中）。DispatcherServlet响应用户。
 
-#### 2.2.1.SpringMVC组件解析
+### 2.2.1.SpringMVC组件解析
 
 在 SpringMVC 的各个组件中，**处理器映射器、处理器适配器、视图解析器**称为 SpringMVC 的三大组件。 使用<mvc:annotation-driven>自动加载 RequestMappingHandlerMapping（处理映射器）和RequestMappingHandlerAdapter（ 处 理 适 配 器 ），可用在Spring-xml.xml配置文件中**使用<mvc:annotation-driven>替代注解处理器和适配器的配置**。同时使用**<mvc:annotation-driven>默认底层就会集成jackson进行对象或集合的json格式字符串的转换。**
 
@@ -1871,7 +1871,7 @@ View Resolver 负责将处理结果生成 View 视图，View Resolver 首先根�
 
 SpringMVC 框架提供了很多的 View 视图类型的支持，包括：jstlView、freemarkerView、pdfView等。最常用的视图就是 jsp。一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面
 
-#### 2.2.2.SpringMVC注解解析
+### 2.2.2.SpringMVC注解解析
 
 ```java
 @Controller //使用在web层类上用于实例化Bean
@@ -1904,7 +1904,7 @@ public class UserController {
     - params = {"accountName"}，表示请求参数必须有accountName
     - params= {"moeny!100"}，表示请求参数中money不能是100
 
-#### 2.2.3.SpringMVC的XML配置解析
+### 2.2.3.SpringMVC的XML配置解析
 
 1. **mvc命名空间引入** 命名空间：xmlns:context="http://www.springframework.org/schema/context"
 
@@ -1967,9 +1967,9 @@ spring-mvc.xml配置如下：
 </beans>
 ```
 
-### 2.3.SpringMVC的数据响应
+## 2.3.SpringMVC的数据响应
 
-#### 2.3.1.页面跳转
+### 2.3.1.页面跳转
 
 - 返回字符串形式：会将返回的字符串与视图解析器的前后缀拼接后跳转。(**见SpringMVC注解解析**)
 
@@ -2053,7 +2053,7 @@ spring-mvc.xml配置如下：
     }
     ```
 
-#### 2.3.2.回写数据
+### 2.3.2.回写数据
 
 - 直接返回字符串：
 
@@ -2142,9 +2142,9 @@ spring-mvc.xml配置如下：
   ```
 
 
-### 2.4.SpringMVC获得请求数据
+## 2.4.SpringMVC获得请求数据
 
-#### 2.4.1.获得请求参数
+### 2.4.1.获得请求参数
 
 1. 基本类型参数
 
@@ -2275,7 +2275,7 @@ spring-mvc.xml配置如下：
      ```
 
 
-#### 2.4.2.放行静态资源
+### 2.4.2.放行静态资源
 
 SpringMVC的**前端控制器DispatcherServlet的url-pattern配置的是/\**，代表**对所有的资源都进行过滤操作**，
 
@@ -2303,7 +2303,7 @@ SpringMVC的**前端控制器DispatcherServlet的url-pattern配置的是/\**，�
   <mvc:default-servlet-handler/>
   ```
 
-#### 2.4.3.请求数据乱码问题
+### 2.4.3.请求数据乱码问题
 
 当post请求时，数据会出现乱码(中文)，我们可以在**web.xml**设置一个过滤器来进行编码的过滤。
 
@@ -2323,7 +2323,7 @@ SpringMVC的**前端控制器DispatcherServlet的url-pattern配置的是/\**，�
 </filter-mapping>
 ```
 
-#### 2.4.4.参数绑定注解@requestParam
+### 2.4.4.参数绑定注解@requestParam
 
 当请求的参数名称与Controller的业务方法参数名称不一致时，就需要通过@RequestParam注解显示的绑定。
 
@@ -2350,7 +2350,7 @@ public void save15(@RequestParam(value = "name", required = false,
 }
 ```
 
-#### 2.4.5.获得Restful风格的参数
+### 2.4.5.获得Restful风格的参数
 
 - **Restful**是一种软件**架构风格**、**设计风格**，而不是标准，只是提供了一组设计原则和约束条件。主要用于客户端和服务器交互类的软件，基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存机制等。
 
@@ -2385,7 +2385,7 @@ public void save15(@RequestParam(value = "name", required = false,
   }
   ```
 
-#### 2.4.6.自定义类型转换器
+### 2.4.6.自定义类型转换器
 
 - SpringMVC 默认已经提供了一些常用的类型转换器，例如客户端提交的字符串转换成int型进行参数设置。
 
@@ -2442,7 +2442,7 @@ public void save15(@RequestParam(value = "name", required = false,
     }
     ```
 
-#### 2.4.7.获得Servlet相关API
+### 2.4.7.获得Servlet相关API
 
 SpringMVC支持使用原始ServletAPI对象作为控制器方法的参数进行注入，常用的对象如下：
 
@@ -2461,7 +2461,7 @@ public void save18(HttpServletRequest request, HttpServletResponse response, Htt
 }
 ```
 
-#### 2.4.8.获得请求头
+### 2.4.8.获得请求头
 
 - 使用@RequestHeader可以获得请求头信息，相当于web阶段学习的request.getHeader(name)，@RequestHeader注解的属性如下：
 
@@ -2485,7 +2485,7 @@ public void save19(@RequestHeader("User-Agent") String requestHead, @CookieValue
 }
 ```
 
-#### 2.4.9.文件上传
+### 2.4.9.文件上传
 
 - 文件上传要素：
 
@@ -2568,20 +2568,20 @@ public void save19(@RequestHeader("User-Agent") String requestHead, @CookieValue
   }
   ```
 
-### 2.5.SpringMVC拦截器
+## 2.5.SpringMVC拦截器
 
 Spring MVC 的**拦截器（Interceptor）**类似于 Servlet开发中的过滤器 Filter，用于对处理器进行预处理和后处理。
 
 将拦截器按一定的顺序联结成一条链，这条链称为拦截器链（Interceptor Chain）。在访问被拦截的方法或字段时，拦截器链中的拦截器就会按其之前定义的顺序被调用。拦截器也是AOP思想的具体实现。
 
-#### 2.5.1.拦截器和过滤器区别
+### 2.5.1.拦截器和过滤器区别
 
 | **区别** | **过滤器**Servlet                                           | **拦截器**Interceptor                                        |
 | -------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
 | 使用范围 | 是 servlet 规范中的一部分，任何 JavaWeb工程都可以使用       | 是 SpringMVC框架自己的，只有使用了SpringMVC框架的工程才能用  |
 | 拦截范围 | 在url-pattern中配置了**/***之后，可以对所有要访问的资源拦截 | **只会拦截访问的控制器方法**，如果访问的是 jsp，html,css,image 或者 js 是不会进行拦截的 |
 
-#### 2.5.2.拦截器功能实现
+### 2.5.2.拦截器功能实现
 
 ①创建拦截器类实现HandlerInterceptor接口重写default方法
 
@@ -2639,7 +2639,7 @@ public ModelAndView quickMethod23() throws IOException, ParseException {
 
 ![image-20210819110330078](SSM.assets/image-20210819110330078.png)
 
-#### 2.5.3.拦截器方法说明
+### 2.5.3.拦截器方法说明
 
 | **方法名**        | **说明**                                                     |
 | ----------------- | ------------------------------------------------------------ |
@@ -2647,7 +2647,7 @@ public ModelAndView quickMethod23() throws IOException, ParseException {
 | postHandle()      | **该方法是在当前请求进行处理之后被调用**，前提是**preHandle 方法的返回值为true** 时才能被调用，**且它会在DispatcherServlet 进行视图返回渲染之前被调用**，所以我们可以在这个方法中对Controller 处理之后的ModelAndView 对象进行操作 |
 | afterCompletion() | **该方法将在整个请求结束之后**，也就是在DispatcherServlet 渲染了对应的视图之后执行，前提是**preHandle 方法的返回值为true** 时才能被调用 |
 
-#### 2.5.4.多拦截器操作
+### 2.5.4.多拦截器操作
 
 类似FilterChain的工作方式：
 
@@ -2657,9 +2657,9 @@ public ModelAndView quickMethod23() throws IOException, ParseException {
 
 ![image-20210819140147543](SSM.assets/image-20210819140147543.png)
 
-### 2.6.SpringMVC异常处理机制
+## 2.6.SpringMVC异常处理机制
 
-#### 2.6.1异常处理的方式
+### 2.6.1异常处理的方式
 
 - 系统中异常包括两类：**预期异常**和**运行时异常RuntimeException**，前者通过捕获异常从而获取异常信息，后者主要通过规范代码开发、测试等手段减少运行时异常的发生。
 
@@ -2672,7 +2672,7 @@ public ModelAndView quickMethod23() throws IOException, ParseException {
   - 使用Spring MVC提供的简单异常处理器SimpleMappingExceptionResolver
   - 实现Spring的异常处理接口HandlerExceptionResolver 自定义自己的异常处理器
 
-#### 2.6.2.简单异常处理器SimpleMappingExceptionResolver
+### 2.6.2.简单异常处理器SimpleMappingExceptionResolver
 
 SpringMVC已经定义好了该类型转换器，在使用时可以根据项目情况进行相应异常与视图的映射在spring-mvc.xml中配置：
 
@@ -2691,7 +2691,7 @@ SpringMVC已经定义好了该类型转换器，在使用时可以根据项目�
 </bean>
 ```
 
-#### 2.6.3.自定义异常处理器
+### 2.6.3.自定义异常处理器
 
 ①创建异常处理器类实现HandlerExceptionResolver
 
@@ -2746,7 +2746,7 @@ public class MyExceptionResolver implements HandlerExceptionResolver {
 </html>
 ```
 
-## 三、MyBatis
+# 三、MyBatis
 
 - MyBatis 是一个优秀的基于java的持久层框架，它**内部封装了jdbc**，使开发者只需要关注sql语句本身，而不需要花费精力去处理加载驱动、创建连接、创建statement等繁杂的过程。MyBatis最强大的特性之一就是它的**动态语句**功能。
 - MyBatis通过xml或注解的方式将要执行的各种 statement配置起来，并通过java对象和statement中sql的动态参数进行**映射生成最终执行的sql语句**。
@@ -2778,7 +2778,7 @@ public class MyExceptionResolver implements HandlerExceptionResolver {
 
   ③使用反射、内省等底层技术，自动将实体与表进行属性与字段的自动映射
 
-### 3.1.MyBatis开发步骤
+## 3.1.MyBatis开发步骤
 
 ①添加MyBatis的坐标和其他相关坐标
 
@@ -2973,15 +2973,15 @@ public class MyTest {
 }
 ```
 
-### 3.2.MyBatis的映射文件
+## 3.2.MyBatis的映射文件
 
-#### 3.2.1.基本映射文件
+### 3.2.1.基本映射文件
 
 xml映射文件在resources下的路径要和对应mapper接口在java下的路径一致
 
 ![image-20210823192736386](SSM.assets/image-20210823192736386.png)
 
-#### 3.3.2.动态sql语句
+### 3.3.2.动态sql语句
 
 - 动态 SQL 之<if>
 
@@ -3055,7 +3055,7 @@ xml映射文件在resources下的路径要和对应mapper接口在java下的路�
   </mapper>Copy to clipboardErrorCopied
   ```
 
-### 3.3.MyBatis的核心配置文件(SqlMapConfig.xml)
+## 3.3.MyBatis的核心配置文件(SqlMapConfig.xml)
 
 **层级关系：**
 
@@ -3251,9 +3251,9 @@ xml映射文件在resources下的路径要和对应mapper接口在java下的路�
   ```
 
 
-### 3.4.MyBatis对应API
+## 3.4.MyBatis对应API
 
-#### 3.4.1.SqlSession工厂构建器SqlSessionFactoryBuilder
+### 3.4.1.SqlSession工厂构建器SqlSessionFactoryBuilder
 
 常用API：SqlSessionFactory build(InputStream inputStream)
 
@@ -3268,7 +3268,7 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resou
 
 其中， Resources 工具类，这个类在 **org.apache.ibatis.io** 包中。Resources 类帮助你从类路径下、文件系统或一个 web URL 中加载资源文件。
 
-#### 3.4.2.SqlSession工厂对象SqlSessionFactory
+### 3.4.2.SqlSession工厂对象SqlSessionFactory
 
 SqlSessionFactory 有多个个方法创建 SqlSession 实例。常用的有如下两个：
 
@@ -3277,7 +3277,7 @@ SqlSessionFactory 有多个个方法创建 SqlSession 实例。常用的有如�
 | openSession()                   | 会默认开启一个事务，但事务不会自动提交，也就意味着需要手动提交该事务，更新操作数据才会持久化到数据库中 |
 | openSession(boolean autoCommit) | 参数为是否自动提交，如果设置为true，那么不需要手动提交事务   |
 
-#### 3.4.3.SqlSession会话对象
+### 3.4.3.SqlSession会话对象
 
 SqlSession 实例在 MyBatis 中是非常强大的一个类。在这里你会看到所有执行语句、提交或回滚事务和获取映射器实例的方法。
 
@@ -3298,13 +3298,13 @@ void commit();    //MyBatis执行更新操作需要提交事务(openSession(true
 void rollback();Copy to clipboardErrorCopied
 ```
 
-### 3.5.MyBatis中Dao层实现
+## 3.5.MyBatis中Dao层实现
 
-#### 3.5.1.传统开发方式
+### 3.5.1.传统开发方式
 
 编写UserDao接口，编写UserDaoImpl实现
 
-#### 3.5.2.代理开发方式
+### 3.5.2.代理开发方式
 
 Mapper 接口开发方法**只需要编写Mapper 接口**（相当于Dao 接口），由MyBatis 框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。
 
@@ -3320,9 +3320,9 @@ Mapper 接口开发需要遵循以下规范：
 
 ![image-20210823194758837](SSM.assets/image-20210823194758837.png)
 
-#### 3.5.3.MyBatis多表操作
+### 3.5.3.MyBatis多表操作
 
-##### a）一对一查询
+#### a）一对一查询
 
 用户表和订单表的关系为，一个用户有多个订单，一个订单只从属于一个用户
 
@@ -3380,7 +3380,7 @@ select * from orders o,user u where o.uid=u.id;
   </mapper>
   ```
 
-##### b）一对多查询
+#### b）一对多查询
 
 用户表和订单表的关系为，一个用户有多个订单，一个订单只从属于一个用户
 
@@ -3428,7 +3428,7 @@ select *,o.id oid from user u left join orders o on u.id=o.uid;
   </mapper>
   ```
 
-##### c）多对多查询
+#### c）多对多查询
 
 用户表和角色表的关系为，一个用户有多个角色，一个角色被多个用户使用
 
@@ -3476,7 +3476,7 @@ inner join role r on ur.role_id=r.id;
   </mapper>Copy to clipboardErrorCopied
   ```
 
-### 3.6.MyBatis注解开发
+## 3.6.MyBatis注解开发
 
 - 1、将各个mapper对应的映射文件全部以注解的形式写到mapper接口中去：
 
@@ -3627,15 +3627,15 @@ inner join role r on ur.role_id=r.id;
     }
     ```
 
-## 四、SSM整合
+# 四、SSM整合
 
-### 4.1.原始整合方式
+## 4.1.原始整合方式
 
 ![image-20210823204543270](SSM.assets/image-20210823204543270.png)
 
 ![image-20210823204620085](SSM.assets/image-20210823204620085.png)
 
-### 4.2.Spring整合MyBatis
+## 4.2.Spring整合MyBatis
 
 **在service层**，MyBatis需要通过sqlSession工厂对象获取sqlSession会话对象，再执行操作，执行完操作后，提交事务在释放资源
 
@@ -3660,11 +3660,11 @@ sqlSession.close();
 - **2、扫描Mapper，让Spring容器产生Mapper实现类，即MyBatis核心配置文件sqlMapConfig.xml中的加载mapper映射转化为spring配置文件applicationContext中的配置MapperScannerConfigurer这个bean**
 - **3、配置声明式事务控制，切点为service层下的所有实现类的所有方法**
 
-### 4.3.整合后的示例文件
+## 4.3.整合后的示例文件
 
 ![image-20210823225619701](SSM.assets/image-20210823225619701.png)
 
-#### web.xml
+### web.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3715,7 +3715,7 @@ sqlSession.close();
 </web-app>Copy to clipboardErrorCopied
 ```
 
-#### applicationContext.xml
+### applicationContext.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3791,7 +3791,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </beans>Copy to clipboardErrorCopied
 ```
 
-#### sqlMapConfig-spring.xml
+### sqlMapConfig-spring.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3812,7 +3812,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </configuration>Copy to clipboardErrorCopied
 ```
 
-#### com.hjw.mapper.AccountMapper.xml
+### com.hjw.mapper.AccountMapper.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3833,7 +3833,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </mapper>Copy to clipboardErrorCopied
 ```
 
-#### spring-mvc.xml
+### spring-mvc.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3869,7 +3869,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </beans>Copy to clipboardErrorCopied
 ```
 
-#### jdbc.properties
+### jdbc.properties
 
 ```properties
 jdbc.driver=com.mysql.jdbc.Driver
@@ -3878,7 +3878,7 @@ jdbc.username=root
 jdbc.password=123456Copy to clipboardErrorCopied
 ```
 
-#### log4j.properties
+### log4j.properties
 
 ```properties
 ### direct log messages to stdout ###
@@ -3898,7 +3898,7 @@ log4j.appender.file.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{1}:%L - %m%n
 log4j.rootLogger=debug, stdoutCopy to clipboardErrorCopied
 ```
 
-#### pom.xml
+### pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
