@@ -1,4 +1,4 @@
-# Javaweb #
+# Javaweb
 
 Javaweb是指，所有通过Java语言编写可以通过浏览器访问的程序的总称。 Javaweb是基于请求(request)和响应(response)来开发的。
 
@@ -18,7 +18,7 @@ web资源按实现的技术和呈现的效果的不同，又分为静态资源�
 
    http://ip:port/工程名/资源路径
 
-## 一、前端相关技术
+# 一、前端相关技术
 
 ![](Javaweb.assets/html1.png)
 
@@ -28,7 +28,7 @@ web资源按实现的技术和呈现的效果的不同，又分为静态资源�
 - 表现：内容在页面上的表现形式，如布局，颜色，大小等。一啊不能使用**CSS**技术实现。
 - 行为：页面中元素与输入设备交互的响应。一般使用**JavaScript**技术实现。
 
-### 1.1.HTML&CSS
+## 1.1.HTML&CSS
 
 HTML：**H**yper **T**ext **M**arkup **L**anguage （超文本标记语言）
 
@@ -36,7 +36,7 @@ html通过标签来标记要显示的网页中的各个部分。
 
 html内的注释为 <!-- -->（jsp的注释为<%-- --%>）
 
-#### 1.1.1.html常用标签
+### 1.1.1.html常用标签
 
 1. 标题标签：h1到h6。
 
@@ -130,7 +130,7 @@ html内的注释为 <!-- -->（jsp的注释为<%-- --%>）
 
    div表示独占一行，span标签的长度是封装数据的长度，p默认在段落的上方或下方各空出一行(如果已有就不再孔)，font字体标签。
 
-#### 1.1.2.CSS
+### 1.1.2.CSS
 
 CSS 是「层叠样式表单」。是用于(增强)控制网页样式并允许**将样式信息与网页内容分离**的一种标记性语言。
 
@@ -188,9 +188,9 @@ CSS 是「层叠样式表单」。是用于(增强)控制网页样式并允许**
 </body>
 ```
 
-### 1.2.JavaScript&jQuery
+## 1.2.JavaScript&jQuery
 
-#### 1.2.1.JavaScript
+### 1.2.1.JavaScript
 
 Javascript 语言诞生主要是完成页面的数据验证。因此它运行在客户端，需要运行浏览器来解析执行 JavaScript 代码。
 
@@ -273,7 +273,7 @@ JS是弱类型，Java是强类型。弱类型就是类型可变，强类型定�
 
    DOM 全称是 Document Object Model 文档对象模型，就是把文档中的标签，属性，文本，转换成为对象来管理。
 
-#### 1.2.2.JQuery
+### 1.2.2.JQuery
 
 jQuery是指JavaScript和查询(Query)，它是辅助JavaScript开发的js类库。它的核心思想是write less,do more(写得更少,做得更多)，**简化js代码**。
 
@@ -285,9 +285,9 @@ jQuery是指JavaScript和查询(Query)，它是辅助JavaScript开发的js类库
 
 - jQuery中的重点是**$()**核心函数
 
-## 二、XML$Tomcat
+# 二、XML$Tomcat
 
-### 2.1.XML
+## 2.1.XML
 
 xml是可扩展的标记性语言。XML 被设计用来传输和存储数据，HTML 被设计用来显示数据。
 
@@ -297,13 +297,13 @@ xml的主要作用有：
 - 它还可以做为项目或者模块的配置文件
 - 还可以做为网络传输数据的格式（现在 JSON 为主）。
 
-### 2.3.Tomcat
+## 2.3.Tomcat
 
 Tomcat：由 Apache 组织提供的一种 Web 服务器，提供对 jsp 和 Servlet 的支持。它是一种轻量级的 javaWeb 容器（服务器），也是当前应用最广的 JavaWeb 服务器（免费）。
 
-#### 2.3.1.Tomcat的使用
+### 2.3.1.Tomcat的使用
 
-##### a）目录介绍
+#### a）目录介绍
 
 bin：专门用来存放Tomcat服务器的可执行程序 
 
@@ -319,7 +319,7 @@ webapps：专门用来存放部署的Web工程。
 
 work：是Tomcat工作时的目录，用来存放Tomcat运行时jsp翻译为Servlet的源码，和Session钝化的目录。
 
-##### b）Tomcat服务器的启动与停止
+#### b）Tomcat服务器的启动与停止
 
 启动方式一：找到Tomcat目录下的bin目录下的startup.bat文件，双击，就可以启动Tomcat服务器。
 
@@ -329,11 +329,11 @@ work：是Tomcat工作时的目录，用来存放Tomcat运行时jsp翻译为Serv
 
 停止三种方式：1、点击tomcat服务器窗口的x关闭按钮 2、把Tomcat服务器窗口置为当前窗口，然后按快捷键Ctrl+C 3、到找到Tomcat的bin录的目录下的shutdown.bat击就以止双击，就可以停止Tomcat务服务器
 
-##### c）修改Tomcat端口号
+#### c）修改Tomcat端口号
 
 Mysql默认的端口号是：3306 Tomcat默认的端口号是：8080 找到Tomcat目录下的conf目录，找到server.xml配置文件。
 
-##### d）部署web工程到Tomcat中
+#### d）部署web工程到Tomcat中
 
 方式一：只需要把web程目拷到工程的目录拷贝到Tomcat的webapps录目录下可即可。
 
@@ -349,17 +349,17 @@ Mysql默认的端口号是：3306 Tomcat默认的端口号是：8080 找到Tomca
 
 访问方式：http://ip:port/工程名/目录下/文件名（localhost：8080）
 
-##### e）file协议与http协议的区别
+#### e）file协议与http协议的区别
 
 ![](Javaweb.assets/image-20210706161352477.png)
 
 ![](Javaweb.assets/image-20210706161406474.png)
 
-##### f）ROOT工程与默认访问
+#### f）ROOT工程与默认访问
 
 当我们在浏览器地址栏中输入访问地址如下： http://ip:port/====%3E%3E%3E%3E没有工程名的时候，默认访问的是ROOT工程。 当我们在浏览器地址栏中输入的访问地址如下： http://ip:port/工程名/====%3E%3E%3E%3E没有资源名，默认访问index.html页面
 
-#### 2.3.2.IDEA操作动态web工程
+### 2.3.2.IDEA操作动态web工程
 
 IDEA可以整合Tomcat服务器
 
@@ -375,7 +375,7 @@ WEB-INF目录是一个受服务器保护的目录，浏览器无法直接访问�
 
 web.xml是配置文件，配置web工程组件。如servlet程序、Filter过滤器、Listener监听器、session超时等等。
 
-## 三、Servlet
+# 三、Servlet
 
 Servlet简介：
 
@@ -383,9 +383,9 @@ Servlet简介：
 - Servlet就JavaWeb三大组件之一。三大组件分别是：Servlet程序、Filter过滤器、Listener监听器。
 - Servlet是运行在服务器上的一个java小程序，**它可以接收客户端发送过来的请求，并响应数据给客户端**。
 
-### 3.1.Servlet技术
+## 3.1.Servlet技术
 
-#### 3.1.1.Servlet程序的实现与创建方式
+### 3.1.1.Servlet程序的实现与创建方式
 
 1. **实现Servlet接口**
 
@@ -464,11 +464,11 @@ Servlet简介：
 
    NEW -> Servlet，生成的结构与程序2相同，也得配置web.xml文件
 
-#### 3.1.2.Servlet的继承体系
+### 3.1.2.Servlet的继承体系
 
 ![](Javaweb.assets/image-20210706211216574.png)
 
-#### 3.1.3.Servlet的访问机理与生命周期
+### 3.1.3.Servlet的访问机理与生命周期
 
 ![](Javaweb.assets/image-20210706210730007.png)
 
@@ -484,7 +484,7 @@ Servlet简介：
 
 第四步，在web工程停止的时候调用。
 
-### 3.2.ServletConfig类
+## 3.2.ServletConfig类
 
 ServletConfig是 Servlet 程序的配置信息类。
 
@@ -546,7 +546,7 @@ public void init(ServletConfig servletConfig) throws ServletException {
 }
 ```
 
-### 3.3.ServletContext类
+## 3.3.ServletContext类
 
 - 服务器会为每一个工程创建一个Servlet上下文对象，这个对象就是ServletContext接口的对象实例。
 - 这个对象全局唯一，而且工程内部的所有servlet都共享这个对象。所以叫全局应用程序共享对象。
@@ -590,15 +590,15 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 }
 ```
 
-### 3.4 HTTP协议
+## 3.4 HTTP协议
 
-#### 3.4.1.HTTP协议内容
+### 3.4.1.HTTP协议内容
 
 超文本传输协议（Hyper Text Transfer Protocol，*HTTP*）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。
 
 客户端给服务器发送数据叫请求。 服务器给客户端回传数据叫响应。
 
-#### 3.4.2请求的HTTP协议格式
+### 3.4.2请求的HTTP协议格式
 
 **GET请求：**
 
@@ -641,7 +641,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 - User-Agent: 表示客户端浏览器的信息
 - Host： 表示请求时的服务器 ip 和端口号
 
-#### 3.4.3.响应的HTTP协议格式
+### 3.4.3.响应的HTTP协议格式
 
  1、响应行 (1)响应的协议和版本号 (2)响应状态码 (3)响应状态描述符
 
@@ -660,7 +660,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 - 404表示请求服务器已经收到了，但是你要的数据不存在（请求地址错误）
 - 500表示服务器已经收到请求，但是服务器内部错误（代码错误）
 
-#### 3.4.4.MIME类型
+### 3.4.4.MIME类型
 
 - MIME是HTTP协议中数据类型。
 - MIME的英文全称是"MultipurposeInternetMailExtensions"多功能Internet邮件扩充服务。
@@ -670,11 +670,11 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
 ![image-20210707170616508](javaweb.assets/image-20210707170616508.png)
 
-### 3.5.HttpServletRequest类
+## 3.5.HttpServletRequest类
 
 HttpServletRequest对象代表客户端的请求，当客户端通过HTTP协议访问服务器时（**每次**请求进入Tomcat服务器），Tomcat服务器将HTTP请求头中的所有信息都封装在**HttpServletRequest对象**中，然后传递到service方法（doGet和doPost）中给我们使用，通过这个对象提供的方法，可以获得客户端请求的所有信息。
 
-#### 3.5.1.HttpServletRequest对象的常用方法
+### 3.5.1.HttpServletRequest对象的常用方法
 
 - getRequestURI()获取请求的资源路径
 - getRequestURL()获取请求的统一资源定位符（绝对路径）
@@ -736,7 +736,7 @@ username = newString(username.getBytes("iso-8859-1"),"UTF-8");
 request.setCharacterEncoding("UTF-8");
 ```
 
-#### 3.5.2.请求的转发
+### 3.5.2.请求的转发
 
 请求转发是指，服务器收到请求后，从一次资源跳转到另一个资源的操作叫请求转发。（一个Servlet程序跳转到另外一个Servlet程序）
 
@@ -787,7 +787,7 @@ public class Servlet2 extends HttpServlet {
 }
 ```
 
-#### 3.5.3.base标签与相对、绝对路径
+### 3.5.3.base标签与相对、绝对路径
 
 - **请求转发的forwardC是一个Servlet程序**
 
@@ -825,7 +825,7 @@ public class Servlet2 extends HttpServlet {
 
      http://ip:phttp://ip:port/工程名/资源路径
 
-#### 3.5.4.web中 / 的不同意义
+### 3.5.4.web中 / 的不同意义
 
 在web中/斜杠是一种绝对路径。
 
@@ -846,13 +846,13 @@ request.getRequestDispatcher(“/”);
 <url-pattern>/servlet1</url-pattern>
 ```
 
-### 3.6 HTTPServletResponse类
+## 3.6 HTTPServletResponse类
 
 - 每次请求进来，Tomcat服务器都会创建一个Response对象传递给Servlet程序去使用
 - HttpServletRequest表示请求过来的信息，HttpServletResponse表示所有响应的信息
 - 我们如果需要设置返回给客户端的信息，都可以通过HttpServletResponse对象来进行设置
 
-#### 3.6.1.输出流与回传数据
+### 3.6.1.输出流与回传数据
 
 - 字节流 getOutputStream(); 常用于下载（传递二进制数据）
 - 字符流 getWriter(); 常用于回传字符串（常用）
@@ -870,7 +870,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 }Copy to clipboardErrorCopied
 ```
 
-#### 3.6.2.请求重定向
+### 3.6.2.请求重定向
 
 请求重定向，是指客户端给服务器发请求，然后服务器告诉客户端去新地址访问（因为之前的地址可能已经被废弃）。**注意与请求转发区别开来**。
 
@@ -903,7 +903,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 }
 ```
 
-#### 3.6.3.响应和请求的乱码解决
+### 3.6.3.响应和请求的乱码解决
 
 1. 请求的乱码解决
 
@@ -924,7 +924,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
    
 
-## 四、JSP
+# 四、JSP
 
 - jsp 的全称是 java server pages。Java 的服务器页面。
 - jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据，和 html 页面一样，都是存放在 web 目录下。访问也跟访问 html 页面一样。
@@ -952,9 +952,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 - jsp 翻译出来的 java 类，它间接了继承了HttpServlet 类。
 - 其底层实现，也是通过输出流，把 html 页面数据回传 给客户端（ **_jspService方法**）。
 
-### 4.1.jsp语法
+## 4.1.jsp语法
 
-#### 4.1.1.jsp头部的page指令
+### 4.1.1.jsp头部的page指令
 
 jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行为。
 
@@ -974,9 +974,9 @@ jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行�
 | session 属性      | 设置访问当前 jsp 页面，是否会创建 HttpSession 对象。默认是 true。 |
 | extends 属性      | 设置 jsp 翻译出来的 java 类默认继承谁。                      |
 
-#### 4.1.2.jsp的脚本
+### 4.1.2.jsp的脚本
 
-##### a）声明脚本(极少使用)
+#### a）声明脚本(极少使用)
 
 声明脚本的格式是： **<%! 声明 java 代码 %>**
 
@@ -1012,7 +1012,7 @@ jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行�
     %>
 ```
 
-##### b）表达式脚本
+#### b）表达式脚本
 
 表达式脚本的格式是：**<%=表达式%>**
 
@@ -1033,7 +1033,7 @@ jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行�
 <%=request.getParameter("username")%>
 ```
 
-##### c）代码脚本
+#### c）代码脚本
 
 代码脚本的格式是： **<% java 语句 %>**
 
@@ -1051,9 +1051,9 @@ jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行�
 
 ![image-20210712160431577](javaweb.assets/image-20210712160431577.png)
 
-#### 4.1.3.jsp的注释
+### 4.1.3.jsp的注释
 
-##### a）html注释
+#### a）html注释
 
 ```jsp
 <!--这 是 html注 释-->
@@ -1061,7 +1061,7 @@ jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行�
 
 html 注释会被翻译到 java 源代码中，在_jspService 方法里，以 out.writer 输出到客户端，成为**网页页面源码的注释**。
 
-##### b）java注释
+#### b）java注释
 
 ```jsp
 <%
@@ -1072,19 +1072,19 @@ html 注释会被翻译到 java 源代码中，在_jspService 方法里，以 ou
 
 java 注释会被翻译到 java 源代码中。
 
-##### c）jsp注释
+#### c）jsp注释
 
 ```jsp
 <%--这是jsp注释--%>
 ```
 
-### 4.2.jsp九大内置对象
+## 4.2.jsp九大内置对象
 
 是指 Tomcat 在翻译 jsp 页面成为 Servlet 源代码后，内部提供的九大对象。
 
 ![image-20210712161115577](javaweb.assets/image-20210712161115577.png)
 
-### 4.3.jsp四大域对象
+## 4.3.jsp四大域对象
 
 | pageContext | PageContextImpl类    | 当前 jsp 页面范围内有效                                    |
 | ----------- | -------------------- | ---------------------------------------------------------- |
@@ -1127,7 +1127,7 @@ pageContext ====>>> request ====>>> session ====>>> application
 </body>
 ```
 
-### 4.4.out与response.getWriter输出
+## 4.4.out与response.getWriter输出
 
 ![image-20210712165053414](javaweb.assets/image-20210712165053414.png)
 
@@ -1138,9 +1138,9 @@ jsp 翻译之后，底层源代码都是使用 out 来进行输出：
 
 **在 jsp 页面中，可以统一使用 out.print()来进行输出**
 
-### 4.5.jsp常用标签
+## 4.5.jsp常用标签
 
-#### 4.5.1.jsp静态包含(常用)
+### 4.5.1.jsp静态包含(常用)
 
 ![image-20210712145054077](javaweb.assets/image-20210712145054077.png)
 
@@ -1155,7 +1155,7 @@ jsp 翻译之后，底层源代码都是使用 out 来进行输出：
 <%@ include file="/include/footer.jsp"%>
 ```
 
-#### 4.5.2.jsp动态包含(少用)
+### 4.5.2.jsp动态包含(少用)
 
 **<jsp:include page=""></jsp:include>**这是动态包含
 
@@ -1178,7 +1178,7 @@ jsp 翻译之后，底层源代码都是使用 out 来进行输出：
 
 ![image-20210712144929793](javaweb.assets/image-20210712144929793.png)
 
-#### 4.5.3.二种包含的区别
+### 4.5.3.二种包含的区别
 
 在工作中，几乎都是使用静态包含。理由很简单。因为 jsp 页面虽然可以写 java 代码，做其他的功能操作。但是由于 jsp 在开发过程中被定位为专门用来展示页面的技术。也就是说。jsp 页面中，基本上只有 html，css，js。还有一些简单的 EL，表达式脚本等输出语句。所以我们都使用静态包含。
 
@@ -1190,7 +1190,7 @@ jsp 翻译之后，底层源代码都是使用 out 来进行输出：
 | 编译次数            | 1                                                            | 包含的文件 + 1                      |
 |                     | 适用包含纯静态内容(CSS,HTML,JS)，或没有非常耗时操作。或大量 java 代码的 jsp | 包含需要传递参数。含有大量 java代码 |
 
-#### 4.5.4.jsp请求转发
+### 4.5.4.jsp请求转发
 
 **<jsp:forward page=""></jsp:forward>**是请求转发标签 ，它的功能就是请求转发
 
@@ -1200,7 +1200,7 @@ page属性设置请求转发的路径
 <jsp:forward page="/scope2.jsp"></jsp:forward>
 ```
 
-### 4.6.Listener监听器
+## 4.6.Listener监听器
 
 - Listener 监听器它是 JavaWeb 的三大组件之一。JavaWeb 的三大组件分别是：Servlet程序、Filter过滤器、Listener监听器。
 - Listener 它是 JavaEE 的规范，就是**接口**
@@ -1240,11 +1240,11 @@ public class MyServletContextListenerImpl implements ServletContextListener {
 </listener>
 ```
 
-## 五、EL表达式@JSTL标签库
+# 五、EL表达式@JSTL标签库
 
 EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面变得更佳简洁。
 
-### 5.1.EL表达式
+## 5.1.EL表达式
 
 EL 表达式的全称是：Expression Language，表达式语言。其作用主要是代替 jsp 页面中的表达式脚本在 jsp 页面中进行数据的输出，因为 EL 表达式在输出数据的时候，要比 jsp 的表达式脚本要简洁很多。
 
@@ -1262,7 +1262,7 @@ EL 表达式的全称是：Expression Language，表达式语言。其作用主�
 
 EL 表达式在输出 null 值的时候，输出的是空串。jsp 表达式脚本输出 null 值的时候，输出的是 null 字符串。
 
-#### 5.1.1.EL 表达式搜索域数据的顺序
+### 5.1.1.EL 表达式搜索域数据的顺序
 
 EL 表达式主要是在 jsp 页面中输出数据，**主要是输出域对象中的数据。**
 
@@ -1281,7 +1281,7 @@ EL 表达式主要是在 jsp 页面中输出数据，**主要是输出域对象�
 </body>
 ```
 
-#### 5.1.2.EL表达式的输出&运算
+### 5.1.2.EL表达式的输出&运算
 
 **a）输出**Person 类（JavaBean）中普通属性，数组属性。list 集合属性和 map 集合属性。**需要实现get方法，才能使用EL表达式输出。**
 
@@ -1363,7 +1363,7 @@ EL 表达式主要是在 jsp 页面中输出数据，**主要是输出域对象�
   Copy to clipboardErrorCopied
   ```
 
-#### 5.1.3.EL表达式的11个隐含对象
+### 5.1.3.EL表达式的11个隐含对象
 
 11个隐含对象是EL 表达式中自己定义的，可以直接使用。
 
@@ -1381,7 +1381,7 @@ EL 表达式主要是在 jsp 页面中输出数据，**主要是输出域对象�
 | cookie           | Map<String,Object> | 获取当前请求的 Cookie 信息                       |
 | initParam        | Map<String,Object> | 获取在 web.xml 中配置的<context-param>上下文参数 |
 
-##### a）EL 获取四个特定域中的属性
+#### a）EL 获取四个特定域中的属性
 
 ![image-20210713165212065](javaweb.assets/image-20210713165212065.png)
 
@@ -1401,7 +1401,7 @@ EL 表达式主要是在 jsp 页面中输出数据，**主要是输出域对象�
 </body>
 ```
 
-##### b）pageContext 对象的使用
+#### b）pageContext 对象的使用
 
 该pageContext与JSP内置对象pageContext是同一个对象。
 
@@ -1438,7 +1438,7 @@ EL 表达式主要是在 jsp 页面中输出数据，**主要是输出域对象�
 </body>
 ```
 
-##### c）EL 表达式其他隐含对象的使用
+#### c）EL 表达式其他隐含对象的使用
 
 ```jsp
 <body>
@@ -1460,7 +1460,7 @@ EL 表达式主要是在 jsp 页面中输出数据，**主要是输出域对象�
 </body>Copy to clipboardErrorCopied
 ```
 
-### 5.2.JSTL标签库
+## 5.2.JSTL标签库
 
 JSTL 标签库 全称是指 JSP Standard Tag Library ，JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标签库。标签库是为了替换 jsp 中的代码脚本。
 
@@ -1476,7 +1476,7 @@ CORE 标签库引入
 
 相关jar包：taglibs-standard-impl-1.2.1.jar与taglibs-standard-spec-1.2.1.jar
 
-#### JSTL的core核心库
+**JSTL的core核心库：**
 
 1. <<c:set>>（使用很少）
 
@@ -1658,15 +1658,15 @@ CORE 标签库引入
 
   ![image-20210713161732267](javaweb.assets/image-20210713161732267.png)
 
-## 六、cookie@session
+# 六、cookie@session
 
-### 6.1.Cookie
+## 6.1.Cookie
 
 - Cookie 是服务器通知客户端保存键值对的一种技术。（加密后储存在用户本地终端上的数据）
 - 客户端有了 Cookie 后，每次请求都发送给服务器。
 - 每个 Cookie 的大小不能超过 4kb。
 
-#### 6.1.1.Cookie的创建、服务器获取与修改
+### 6.1.1.Cookie的创建、服务器获取与修改
 
 - 创建：
 
@@ -1727,7 +1727,7 @@ CORE 标签库引入
 
   ![image-20210720141332810](https://kiki199809.github.io/java-notes/docs/javaweb.assets/image-20210720141332810.png)
 
-#### 6.1.2.Cookie生命周期控制
+### 6.1.2.Cookie生命周期控制
 
 - Cookie 的生命控制指的是如何管理 Cookie 什么时候被销毁（删除）
 
@@ -1765,7 +1765,7 @@ protected void defaultLife(HttpServletRequest request, HttpServletResponse respo
 }Copy to clipboardErrorCopied
 ```
 
-#### 6.1.3.Cookie有效路径Path
+### 6.1.3.Cookie有效路径Path
 
 - Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务器。
 - path 属性是通过请求的地址来进行有效的过滤。
@@ -1799,7 +1799,7 @@ protected void testPath(HttpServletRequest req, HttpServletResponse resp) throws
 }
 ```
 
-#### 6.1.4.免输入用户名登录
+### 6.1.4.免输入用户名登录
 
 ![image-20210720141905591](javaweb.assets/image-20210720141905591.png)
 
@@ -1830,14 +1830,14 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 }
 ```
 
-### 6.2.Session会话
+## 6.2.Session会话
 
 - Session 就一个接口（HttpSession）
 - Session 就是会话。它是用来维护一个客户端和服务器之间关联的一种技术
 - 每个客户端都有自己的一个 Session 会话
 - Session 会话中，我们经常用来保存用户登录之后的信息（保存在服务器）
 
-#### 6.2.1.Session的创建、获取与域数据存取
+### 6.2.1.Session的创建、获取与域数据存取
 
 - 创建与获取
 
@@ -1882,7 +1882,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
   }
   ```
 
-#### 6.2.2.Session生命周期控制
+### 6.2.2.Session生命周期控制
 
 - **public void setMaxInactiveInterval(intinterval)** 设置 Session 的超时时间（**以秒为单位**），超过指定的时长，Session 就会被销毁。 值为正数的时候，设定 Session 的超时时长。 负数表示永不超时（极少使用）,默认超时时长为30分钟。
 
@@ -1911,17 +1911,17 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 
   ![image-20210720143128862](javaweb.assets/image-20210720143128862.png)
 
-#### 6.2.3.Session与浏览器关联技术
+### 6.2.3.Session与浏览器关联技术
 
 ![](Javaweb.assets/image-20210720144038026.png)
 
-## 七、Filter过滤器
+# 七、Filter过滤器
 
 - Filter 过滤器它是 JavaWeb 的三大组件之一，分别是：Servlet 程序、Listener 监听器、Filter 过滤器
 - Filter 过滤器它是 JavaEE 的规范，也就是接口
 - Filter 过滤器它的作用是：拦截请求(权限检查、日记操作、事务管理)，过滤响应。
 
-### 7.1.Filter初步使用
+## 7.1.Filter初步使用
 
 ![image-20210725212957649](javaweb.assets/image-20210725212957649.png)
 
@@ -1985,7 +1985,7 @@ web.xml 中的配置：
 </filter-mapping>
 ```
 
-### 7.2.Filter的生命周期
+## 7.2.Filter的生命周期
 
 - 1、构造器方法
 
@@ -2001,7 +2001,7 @@ web.xml 中的配置：
 
    第 4 步，停止 web 工程的时候，就会执行（停止 web 工程，也会销毁 Filter 过滤器）
 
-### 7.3.FilterConfig类
+## 7.3.FilterConfig类
 
 Tomcat 每次创建 Filter 的时候，也会同时创建一个 FilterConfig 类，这里包含了 Filter 配置文件的配置信息。
 
@@ -2049,13 +2049,13 @@ web.xml 配置：
 </filter>
 ```
 
-### 7.4.FilterChain过滤器
+## 7.4.FilterChain过滤器
 
 FilterChain处理多个过滤器如何一起工作
 
 ![image-20210725213942508](javaweb.assets/image-20210725213942508.png)
 
-### 7.5.Filter的拦截路径
+## 7.5.Filter的拦截路径
 
 Filter 过滤器它只关心请求的地址是否匹配，不关心请求的资源是否存在。
 
@@ -2085,7 +2085,7 @@ Filter 过滤器它只关心请求的地址是否匹配，不关心请求的资�
 
   以上配置的路径，表示请求地址必须以.html等结尾才会拦截到
 
-### 7.6.ThreadLocal 的使用
+## 7.6.ThreadLocal 的使用
 
 - ThreadLocal 的作用，它可以解决多线程的数据安全问题。
 - ThreadLocal 它可以给当前线程关联一个数据（可以是普通变量，可以是对象，也可以是数组，集合）
@@ -2132,14 +2132,14 @@ public class ThreadLocalTest {
 }
 ```
 
-## 八、JSON,AJAX&i18n
+# 八、JSON,AJAX&i18n
 
-### 8.1.JSON
+## 8.1.JSON
 
 - JSON (JavaScript Object Notation) 是一种轻量级(**与xml比较**)的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。
 - 数据交换格式指的是客户端和服务器之间业务数据的传递格式。
 
-#### 8.1.1.JSON在JavaScript中的使用
+### 8.1.1.JSON在JavaScript中的使用
 
 - json的定义：由键值对组成，并且由花括号（大括号）包围。每个键由引号引起来，键和值之间使用冒号进行分隔， 多组键值对之间进行逗号进行分隔。
 - json的访问：json本身就是一个对象， json 对象.key
@@ -2201,7 +2201,7 @@ public class ThreadLocalTest {
 </script>
 ```
 
-#### 8.1.2.JSON在Java中的使用
+### 8.1.2.JSON在Java中的使用
 
 JavaBean、List、Map与JSON字符串的互相转化：
 
@@ -2265,13 +2265,13 @@ public void test3(){
 }
 ```
 
-### 8.2.AJAX请求
+## 8.2.AJAX请求
 
 - AJAX 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发 技术。
 - ajax 是一种浏览器通过 js 异步发起请求，局部更新页面的技术。
 - Ajax 请求的局部更新，浏览器地址栏不会发生变化，局部更新不会舍弃原来页面的内容
 
-#### 8.2.1.原生(javaScript中)AJAX请求示例
+### 8.2.1.原生(javaScript中)AJAX请求示例
 
 ajax.html：
 
@@ -2326,7 +2326,7 @@ protected void javaScriptAjax(HttpServletRequest request, HttpServletResponse re
 }
 ```
 
-#### 8.2.2.jQuery中的AJAX请求
+### 8.2.2.jQuery中的AJAX请求
 
 **$.ajax 方法** ：
 
@@ -2478,14 +2478,14 @@ protected void jQuerySerialize(HttpServletRequest request, HttpServletResponse r
 }
 ```
 
-### 8.3.i18n国际化
+## 8.3.i18n国际化
 
 - 国际化（Internationalization）指的是同一个网站可以支持多种不同的语言，以方便不同国家，不同语种的用户访问。
 - 希望相同的一个网站，而不同人访问的时候可以根据用户所在的区域显示 不同的语言文字，而网站的布局样式等不发生改变。
 
 ![image-20210727152916946](javaweb.assets/image-20210727152916946.png)
 
-#### 8.3.1.国际化资源 properties 测试
+### 8.3.1.国际化资源 properties 测试
 
 i18n_en_US.properties ：
 
@@ -2549,7 +2549,7 @@ public void testI18n(){
 }Copy to clipboardErrorCopied
 ```
 
-#### 8.3.2.jsp脚本实现国际化
+### 8.3.2.jsp脚本实现国际化
 
 ```jsp
 <%@ page import="java.util.Locale" %> 
@@ -2621,7 +2621,7 @@ public void testI18n(){
 Copy to clipboardErrorCopied
 ```
 
-#### 8.3.3.JSTL 标签库实现国际化
+### 8.3.3.JSTL 标签库实现国际化
 
 - <%--1使 用 标 签 设 置 Locale信 息 --%>
   - <fmt:setLocale value="" />
