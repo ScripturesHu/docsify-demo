@@ -18,7 +18,7 @@ web资源按实现的技术和呈现的效果的不同，又分为静态资源�
 
    http://ip:port/工程名/资源路径
 
-## 一.前端相关技术
+## 一、前端相关技术
 
 ![](Javaweb.assets/html1.png)
 
@@ -285,7 +285,7 @@ jQuery是指JavaScript和查询(Query)，它是辅助JavaScript开发的js类库
 
 - jQuery中的重点是**$()**核心函数
 
-## 二.XML$Tomcat
+## 二、XML$Tomcat
 
 ### 2.1.XML
 
@@ -375,7 +375,7 @@ WEB-INF目录是一个受服务器保护的目录，浏览器无法直接访问�
 
 web.xml是配置文件，配置web工程组件。如servlet程序、Filter过滤器、Listener监听器、session超时等等。
 
-## 三.Servlet
+## 三、Servlet
 
 Servlet简介：
 
@@ -924,7 +924,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
    
 
-## 四.JSP
+## 四、JSP
 
 - jsp 的全称是 java server pages。Java 的服务器页面。
 - jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据，和 html 页面一样，都是存放在 web 目录下。访问也跟访问 html 页面一样。
@@ -1240,7 +1240,7 @@ public class MyServletContextListenerImpl implements ServletContextListener {
 </listener>
 ```
 
-## 五.EL表达式@JSTL标签库
+## 五、EL表达式@JSTL标签库
 
 EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面变得更佳简洁。
 
@@ -1658,7 +1658,7 @@ CORE 标签库引入
 
   ![image-20210713161732267](javaweb.assets/image-20210713161732267.png)
 
-## 六.cookie@session
+## 六、cookie@session
 
 ### 6.1.Cookie
 
@@ -1915,7 +1915,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 
 ![](Javaweb.assets/image-20210720144038026.png)
 
-## 七.Filter过滤器
+## 七、Filter过滤器
 
 - Filter 过滤器它是 JavaWeb 的三大组件之一，分别是：Servlet 程序、Listener 监听器、Filter 过滤器
 - Filter 过滤器它是 JavaEE 的规范，也就是接口
@@ -2132,7 +2132,7 @@ public class ThreadLocalTest {
 }
 ```
 
-## 八.JSON,AJAX&i18n
+## 八、JSON,AJAX&i18n
 
 ### 8.1.JSON
 
