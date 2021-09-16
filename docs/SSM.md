@@ -2354,6 +2354,9 @@ public void save15(@RequestParam(value = "name", required = false,
 
 - **Restful**是一种软件**架构风格**、**设计风格**，而不是标准，只是提供了一组设计原则和约束条件。主要用于客户端和服务器交互类的软件，基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存机制等。
 
+  比如我们要访问一个http 接口：http://localhost:8080/boot/order?id=1021&status=1 
+  采用RESTFul 风格则 http 地址为：http://localhost:8080/boot/order/1021/1 
+
 - **Restful**风格的请求是使用**“url+请求方式”**表示一次请求目的的，HTTP 协议里面四个表示操作方式的动词如下：
 
   GET：用于获取资源
