@@ -776,7 +776,7 @@ public class InvPolandNotation {
 
   **小结**: 看输出父结点的顺序，就确定是前序，中序还是后序
 
-  <img src="DataStructuresAndAlgorithms.assets/image-20210728221811659.png" style="zoom:50%;" />
+  <img src="DataStructuresAndAlgorithms.assets/image-20210728221811659.png" />
 
   前序遍历A-B-D-F-G-H-I-E-C
 
