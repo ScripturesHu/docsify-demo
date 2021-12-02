@@ -32,11 +32,11 @@
 
 **并发（concurrent）**：多个线程轮流使用CPU（单核），即串行执行。类似于**同步**：需要等待结果返回，才能继续运行
 
-![image-20211121190926573](D:\JavaFile\juv并发编程\JUV.assets\image-20211121190926573.png)
+![image-20211121190926573](java并发编程.assets/image-20211121190926573.png)
 
 **并行（parallel）**：多核同时调度运行线程（一般情况下并行和并发同时存在）。类似于**异步**：不需要等待结果返回，就能继续运行
 
-![image-20211121190942500](D:\JavaFile\juv并发编程\JUV.assets\image-20211121190942500.png)
+![image-20211121190942500](java并发编程.assets/image-20211121190942500.png)
 
 **结论：**
 
@@ -154,7 +154,7 @@ JVM中由堆、栈、方法区所组成，其中栈内存是给谁用的呢？�
 
 ## 2.3 Thread的常见方法
 
-![image-20211123153625120](D:\JavaFile\juv并发编程\JUV.assets\image-20211123153625120.png)
+![image-20211123153625120](java并发编程.assets/image-20211123153625120.png)
 
 ![image-20211123153656918](D:\JavaFile\juv并发编程\JUV.assets\image-20211123153656918.png)
 
@@ -248,7 +248,7 @@ yield使cpu调用其它线程，但是cpu可能会再分配时间片给该线程
 
 等待结果时可以使用同步处理，也可以使用异步来处理。join() 可以实现同步
 
-![image-20211123160014653](D:\JavaFile\juv并发编程\JUV.assets\image-20211123160014653.png)
+![image-20211123160014653](java并发编程.assets/image-20211123160014653.png)
 
 ### 3.3.5 interrupt 
 
@@ -321,7 +321,7 @@ Two Phase Termination，就是考虑在一个线程T1中如何优雅地终止另
 
 如下所示：那么线程的`isInterrupted()`方法可以取得线程的打断标记，如果线程在睡眠`sleep`期间被打断，打断标记是不会变的，为false，但是`sleep`期间被打断会抛出异常，我们据此手动设置打断标记为`true`；如果是在程序正常运行期间被打断的，那么打断标记就被自动设置为`true`。处理好这两种情况那我们就可以放心地来料理后事啦！
 
-![image-20211123160617046](D:\JavaFile\juv并发编程\JUV.assets\image-20211123160617046.png)
+![image-20211123160617046](java并发编程.assets/image-20211123160617046.png)
 
 代码实现如下：
 
@@ -364,7 +364,7 @@ class TwoParseTermination{
 }
 ```
 
-![image-20211123160852447](D:\JavaFile\juv并发编程\JUV.assets\image-20211123160852447.png)
+![image-20211123160852447](java并发编程.assets\image-20211123160852447.png)
 
 > 使用volatile关键字实现两阶段终止
 
@@ -428,7 +428,7 @@ class TwoParseTermination{
 
 五种状态的划分主要是从操作系统的层面进行划分的
 
-![1583507073055](D:\JavaFile\juv并发编程\JUV.assets\1583507073055.png)
+![1583507073055](java并发编程.assets/1583507073055.png)
 
 1. 初始状态，仅仅是在语言层面上创建了线程对象，即`Thead thread = new Thead();`，还未与操作系统线程关联
 2. 可运行状态，也称就绪状态，指该线程已经被创建，与操作系统相关联，等待cpu给它分配时间片就可运行
@@ -445,7 +445,7 @@ class TwoParseTermination{
 这是从 Java API 层面来描述的，我们主要研究的就是这种。状态转换详情图：[地址](https://www.jianshu.com/p/ec94ed32895f)
 根据 Thread.State 枚举，分为六种状态 
 
-![1583507709834](D:\JavaFile\juv并发编程\JUV.assets\1583507709834.png)
+![1583507709834](java并发编程.assets/1583507709834.png)
 
 1. NEW 跟五种状态里的初始状态是一个意思
 2. RUNNABLE 是当调用了 `start()` 方法之后的状态，注意，Java API 层面的 `RUNNABLE` 状态涵盖了操作系统层面的【可运行状态】、【运行状态】和【io阻塞状态】（由于 BIO 导致的线程阻塞，在 Java 里无法区分，仍然认为是可运行）
@@ -454,7 +454,7 @@ class TwoParseTermination{
 
 ### 线程状态转换
 
-![img](D:\JavaFile\juv并发编程\JUV.assets\1155)
+![img](java并发编程.assets/1155)
 
 假设有线程Thread t 和当前主线程main
 
@@ -549,9 +549,9 @@ class TwoParseTermination{
 
 我将从字节码的层面进行分析：
 
-![1583568350082](D:\JavaFile\juv并发编程\JUV.assets\1583568350082.png)
+![1583568350082](java并发编程.assets/1583568350082.png)
 
-![1583568587168](D:\JavaFile\juv并发编程\JUV.assets\1583568587168.png)
+![1583568587168](java并发编程.assets/1583568587168.png)
 
 ```java
 getstatic i // 获取静态变量i的值
@@ -567,19 +567,19 @@ putstatic i // 将修改后的值存入静态变量i
 
 可以看到`count++` 和 `count--` 操作实际都是需要这个4个指令完成的，那么这里问题就来了！Java 的内存模型如下，完成静态变量的自增，自减需要在主存和工作内存中进行数据交换：
 
-![1583569253392](D:\JavaFile\juv并发编程\JUV.assets\1583569253392.png)
+![1583569253392](java并发编程.assets/1583569253392.png)
 
 如果代码是正常按顺序运行的，那么count的值不会计算错
 
-![1583569326977](D:\JavaFile\juv并发编程\JUV.assets\1583569326977.png)
+![1583569326977](java并发编程.assets/1583569326977.png)
 
 出现负数的情况：
 
-![1583569380639](D:\JavaFile\juv并发编程\JUV.assets\1583569380639.png)
+![1583569380639](java并发编程.assets/1583569380639.png)
 
 出现正数的情况：
 
-![1583569416016](D:\JavaFile\juv并发编程\JUV.assets\1583569416016.png)
+![1583569416016](java并发编程.assets/1583569416016.png)
 
 #### 临界区
 
@@ -661,7 +661,7 @@ public static void main(String[] args) throws InterruptedException {
 
 synchronized实际上利用对象保证了临界区代码的原子性，临界区内的代码在外界看来是不可分割的，不会被线程切换所打断
 
-![1583571633729](D:\JavaFile\juv并发编程\JUV.assets\1583571633729.png)
+![1583571633729](java并发编程.assets/1583571633729.png)
 
 ### synchronized 加在方法上
 
@@ -904,7 +904,7 @@ public static void test1() {
 
 每个线程调用 test1() 方法时局部变量 i，会在每个线程的栈帧内存中被创建多份，因此不存在共享
 
-![1583587166210](D:\JavaFile\juv并发编程\JUV.assets\1583587166210.png)
+![1583587166210](java并发编程.assets/1583587166210.png)
 
 #### 线程不安全的情况
 
@@ -946,9 +946,9 @@ class UnsafeTest{
   1. 第一步，在 arrayList[Size] 的位置存放此元素； 第二步增大 Size 的值。 
   2. 在单线程运行的情况下，如果 Size = 0，添加一个元素后，此元素在位置 0，而且 Size=1；而如果是在多线程情下，比如有两个线程，线程 A 先将元素存放在位置 0。但是此时 CPU 调线程A暂停，线程 B 得到运行的机会。线程B也向此 ArrayList 添加元素，因为此时 Size 仍等于 0 （注意哦，我们假设的是添加一个元素是要两个步骤哦，而线程A仅仅完成了步骤1），所以线程B也将元素存放在位置0。然后线程A和线程B都继续运行，都增加 Size 的值。 那好，现在我们来看看 ArrayList 的情况，元素实际上只有一个，存放在位置 0，而 Size 却等于 2。这就是“线程不 安全”了。 
 
-![1583589268096](D:\JavaFile\juv并发编程\JUV.assets\1583589268096.png)
+![1583589268096](java并发编程.assets/1583589268096.png)
 
-![1583587571334](D:\JavaFile\juv并发编程\JUV.assets\1583587571334.png)
+![1583587571334](java并发编程.assets/1583587571334.png)
 
 ##### 解决方法
 
@@ -1038,7 +1038,7 @@ if( table.get("key") == null) {
 }
 ```
 
-![1583590979975](D:\JavaFile\juv并发编程\JUV.assets\1583590979975.png)
+![1583590979975](java并发编程.assets/1583590979975.png)
 
 #### 不可变类的线程安全
 
@@ -1294,19 +1294,19 @@ class Account {
 
 以 32 位虚拟机为例，普通对象的对象头结构如下，其中的Klass Word为指针，指向对应的Class对象；
 
-![1583651065372](D:\JavaFile\juv并发编程\JUV.assets\1583651065372.png)
+![1583651065372](java并发编程.assets/1583651065372.png)
 
 数组对象
 
-![1583651088663](D:\JavaFile\juv并发编程\JUV.assets\1583651088663.png)
+![1583651088663](java并发编程.assets/1583651088663.png)
 
 其中 Mark Word 结构为
 
-![1583651132111](D:\JavaFile\juv并发编程\JUV.assets\1583651132111.png)
+![1583651132111](java并发编程.assets/1583651132111.png)
 
 所以一个对象的结构如下：
 
-![1583678624634](D:\JavaFile\juv并发编程\JUV.assets\20200308224345-655905.png)
+![1583678624634](java并发编程.assets/20200308224345-655905.png)
 
 
 
@@ -1316,7 +1316,7 @@ Monitor被翻译为**监视器**或者说**管程**
 
 每个java对象都可以关联一个Monitor，如果使用`synchronized`给对象上锁（重量级），该对象头的Mark Word中就被设置为指向Monitor对象的指针
 
-![1583652360228](D:\JavaFile\juv并发编程\JUV.assets\20200309172316-799735.png)
+![1583652360228](java并发编程.assets/20200309172316-799735.png)
 
 - 刚开始时Monitor中的Owner为null
 - 当Thread-2 执行synchronized(obj){}代码时就会将Monitor的所有者Owner 设置为 Thread-2，上锁成功，Monitor中同一时刻只能有一个Owner
@@ -1391,26 +1391,26 @@ public static void method2() {
 
 1. 每次指向到synchronized代码块时，都会创建锁记录（Lock Record）对象，每个线程都会包括一个锁记录的结构，锁记录内部可以储存对象的Mark Word和对象引用reference
    
-   ![1583755737580](D:\JavaFile\juv并发编程\JUV.assets\20200309200902-382362.png)
+   ![1583755737580](java并发编程.assets/20200309200902-382362.png)
    
 2. 让锁记录中的Object reference指向对象，并且尝试用cas(compare and sweep)替换Object对象的Mark Word ，将Mark Word 的值存入锁记录中
    
-   ![1583755888236](D:\JavaFile\juv并发编程\JUV.assets\20200309201132-961387.png)
+   ![1583755888236](java并发编程.assets/20200309201132-961387.png)
    
 3. 如果cas替换成功，那么对象的对象头储存的就是锁记录的地址和状态01，如下所示
    
-   ![1583755964276](D:\JavaFile\juv并发编程\JUV.assets\20200309201247-989088.png)
+   ![1583755964276](java并发编程.assets/20200309201247-989088.png)
    
 4. 如果cas失败，有两种情况
    1. 如果是其它线程已经持有了该Object的轻量级锁，那么表示有竞争，将进入锁膨胀阶段
    
    2. 如果是自己的线程已经执行了synchronized进行加锁，那么那么再添加一条 Lock Record 作为重入的计数
       
-      ![1583756190177](D:\JavaFile\juv并发编程\JUV.assets\20200309201634-451646.png)
+      ![1583756190177](java并发编程.assets/20200309201634-451646.png)
    
 5. 当线程退出synchronized代码块的时候，**如果获取的是取值为 null 的锁记录 **，表示有重入，这时重置锁记录，表示重入计数减一
    
-   ![1583756357835](D:\JavaFile\juv并发编程\JUV.assets\20200309201919-357425.png)
+   ![1583756357835](java并发编程.assets/20200309201919-357425.png)
    
 6. 当线程退出synchronized代码块的时候，如果获取的锁记录取值不为 null，那么使用cas将Mark Word的值恢复给对象
    - 成功则解锁成功
@@ -1421,10 +1421,10 @@ public static void method2() {
 如果在尝试加轻量级锁的过程中，cas操作无法成功，这是有一种情况就是其它线程已经为这个对象加上了轻量级锁，这是就要进行锁膨胀，将轻量级锁变成重量级锁。
 
 1. 当 Thread-1 进行轻量级加锁时，Thread-0 已经对该对象加了轻量级锁
-   1. ![1583757433691](D:\JavaFile\juv并发编程\JUV.assets\20200309203715-909034.png)
+   1. ![1583757433691](java并发编程.assets/20200309203715-909034.png)
 2. 这时 Thread-1 加轻量级锁失败，进入锁膨胀流程
    1. 即为对象申请Monitor锁，让Object指向重量级锁地址，然后自己进入Monitor 的EntryList 变成BLOCKED状态
-   2. ![1583757586447](D:\JavaFile\juv并发编程\JUV.assets\20200309203947-654193.png)
+   2. ![1583757586447](java并发编程.assets/20200309203947-654193.png)
 3. 当Thread-0 退出synchronized同步块时，使用cas将Mark Word的值恢复给对象头，失败，那么会进入重量级锁的解锁过程，即按照Monitor的地址找到Monitor对象，将Owner设置为null，唤醒EntryList 中的Thread-1线程
 
 #### 3.自旋优化
@@ -1432,9 +1432,9 @@ public static void method2() {
 重量级锁竞争的时候，还可以使用自旋来进行优化，如果当前线程自旋成功（即在自旋的时候持锁的线程释放了锁），那么当前线程就可以不用进行上下文切换就获得了锁
 
 1. 自旋重试成功的情况
-   1. ![1583758113724](D:\JavaFile\juv并发编程\JUV.assets\20200309204835-425698.png)
+   1. ![1583758113724](java并发编程.assets/20200309204835-425698.png)
 2. 自旋重试失败的情况，自旋了一定次数还是没有等到持锁的线程释放锁
-   1. ![1583758136650](D:\JavaFile\juv并发编程\JUV.assets\20200309204915-424942.png)
+   1. ![1583758136650](java并发编程.assets/20200309204915-424942.png)
 
 自旋会占用 CPU 时间，单核 CPU 自旋就是浪费，多核 CPU 自旋才能发挥优势。在 Java 6 之后自旋锁是自适应的，比如对象刚刚的一次自旋操作成功过，那么认为这次自旋成功的可能性会高，就多自旋几次；反之，就少自旋甚至不自旋，总之，比较智能。Java 7 之后不能控制是否开启自旋功能
 
@@ -1442,13 +1442,13 @@ public static void method2() {
 
 在轻量级的锁中，我们可以发现，如果同一个线程对同一个对象进行重入锁时，也需要执行CAS操作，这是有点耗时滴，那么java6开始引入了偏向锁的东东，只有第一次使用CAS时将对象的Mark Word头设置为入锁线程ID，**之后这个入锁线程再进行重入锁时，发现线程ID是自己的，那么就不用再进行CAS了**
 
-![1583760728806](D:\JavaFile\juv并发编程\JUV.assets\20200309213209-28609.png)
+![1583760728806](java并发编程.assets/20200309213209-28609.png)
 
  
 
 **偏向状态**
 
-![1583762169169](D:\JavaFile\juv并发编程\JUV.assets\20200309215610-51761.png)
+![1583762169169](java并发编程.assets/20200309215610-51761.png)
 
 一个对象的创建过程
 
@@ -1608,7 +1608,7 @@ synchronized(lock) {
 - JDK 中，join 的实现、Future 的实现，采用的就是此模式
 - 因为要等待另一方的结果，因此归类到同步模式
 
-![1594473284105](D:\JavaFile\juv并发编程\JUV.assets\1594473284105.png)
+![1594473284105](java并发编程.assets/1594473284105.png)
 
 实现：
 
@@ -1714,7 +1714,7 @@ public final synchronized void join(long millis) throws InterruptedException {
 
 多任务版 GuardedObject图中 Futures 就好比居民楼一层的信箱（每个信箱有房间编号），左侧的 t0，t2，t4 就好比等待邮件的居民，右侧的 t1，t3，t5 就好比邮递员如果需要在多个类之间使用 GuardedObject 对象，作为参数传递不是很方便，因此设计一个用来解耦的中间类，这样不仅能够解耦【结果等待者】和【结果生产者】，还能够同时支持多个任务的管理。和生产者消费者模式的区别就是：这个生产者和消费者之间是一一对应的关系，但是生产者消费者模式并不是。rpc框架的调用中就使用到了这种模式。(**多对保护性暂停，加个id作身份辨别**)
 
-![1594518049426](D:\JavaFile\juv并发编程\JUV.assets\1594518049426.png)
+![1594518049426](java并发编程.assets/1594518049426.png)
 
 **实现**
 
@@ -1841,7 +1841,7 @@ class Postman extends Thread {
 
 “异步”的意思就是生产者产生消息之后消息没有被立刻消费，而“同步模式”中，消息在产生之后被立刻消费了。
 
-![1594524622020](D:\JavaFile\juv并发编程\JUV.assets\1594524622020.png)
+![1594524622020](java并发编程.assets/1594524622020.png)
 
 我们写一个线程间通信的消息队列，要注意区别，像rabbit mq等消息框架是进程间通信的。
 
@@ -1965,7 +1965,7 @@ LockSupport.unpark(暂停线程对象);
 3. 线程进入 _cond 条件变量阻塞
 4. 设置 _counter = 0
 
-![1594531894163](D:\JavaFile\juv并发编程\JUV.assets\20200712133136-910801.png)
+![1594531894163](java并发编程.assets/20200712133136-910801.png)
 
 2.调用unpark
 
@@ -1974,7 +1974,7 @@ LockSupport.unpark(暂停线程对象);
 3. Thread_0 恢复运行
 4. 设置 _counter 为 0
 
-![1594532057205](D:\JavaFile\juv并发编程\JUV.assets\1594532057205.png)
+![1594532057205](java并发编程.assets/1594532057205.png)
 
 ### 3.6.3 先调用unpark再调用park的过程
 
@@ -1983,7 +1983,7 @@ LockSupport.unpark(暂停线程对象);
 3. 检查 _counter ，本情况为 1，这时线程无需阻塞，继续运行
 4. 设置 _counter 为 0
 
-![1594532135616](D:\JavaFile\juv并发编程\JUV.assets\20200712133539-357066.png)
+![1594532135616](java并发编程.assets/20200712133539-357066.png)
 
 ## 3.7 活跃性
 
@@ -2085,11 +2085,11 @@ public class TestLiveLock {
 
 **死锁问题：**
 
-![1594558469826](D:\JavaFile\juv并发编程\JUV.assets\20200712205431-675389.png)
+![1594558469826](java并发编程.assets/20200712205431-675389.png)
 
 **顺序加锁的解决方案**
 
-![1594558499871](D:\JavaFile\juv并发编程\JUV.assets\1594558499871.png)
+![1594558499871](java并发编程.assets/1594558499871.png)
 
 
 
